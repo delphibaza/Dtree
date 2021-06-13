@@ -1,0 +1,31 @@
+<html>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <body>
+    <h1>Here is the solution!!!</h1>
+
+    <h3>Given a directory like this:</h2>
+    <p>
+      <pre id="text">
+        laksjdf 
+        asdf asldfkjasdflk   aslfdkj 
+      </pre>
+    </p>
+
+    <h3>The algorithm (using dree depedency) will get:</h2>
+    <p>
+        <pre id="solution">
+          laksjdf 
+          asdf asldfkjasdflk   aslfdkj 
+        </pre>
+    </p>
+    <script>
+      const textElement = document.getElementById("text");
+      const solutionElement = document.getElementById("solution");
+
+      axios.get('/dree').then(({ data: { result, text }}) => {
+        textElement.innerHTML = text;
+        solutionElement.innerHTML = JSON.stringify(result, null, 2);
+      });
+    </script>
+  </body>
+</html>
